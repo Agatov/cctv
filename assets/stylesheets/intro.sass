@@ -1,0 +1,120 @@
+#intro
+  position: relative
+  width: 100%
+  height: 100%
+
+  min-width: 960px
+
+  background: url('/images/bg.jpg') no-repeat
+  background-size: 100%
+
+  @media screen and (max-width: 3000px)
+    background: url('/images/bg.jpg') no-repeat
+    background-size: 100%
+
+  @media screen and (max-width: 1950px)
+    background: url('/images/bg.jpg') no-repeat
+    background-size: 100%
+
+  @media screen and (max-width: 1440px)
+    background: url('/images/bg.jpg') no-repeat
+    background-size: 100%
+
+  @media screen and (max-width: 1000px)
+    background: url('/images/bg.jpg') no-repeat
+    background-size: 100%
+
+
+
+  .wrapper
+    margin: 0px auto
+    width: 960px
+
+
+.title
+  width: 100%
+  padding: 50px 0
+
+  font-family: "HelveticaNeue-Light"
+  font-size: 48px
+  color: #F9CA6B
+  line-height: 64px
+
+.subtitle
+  font-family: 'HelveticaNeue-Regular'
+  color: #fff
+  font-size: 24px
+  line-height: 32px
+
+.block
+  width: 100%
+  height: 400px
+  margin-top: 50px
+  //background: #fff
+
+  ul
+
+    li
+      float: left
+      width: 480px
+      height: 80px
+      position: relative
+
+      &:after
+        clear: both
+        content: "."
+        display: block
+        height: 0
+        clear: both
+        visibility: hidden
+
+      input[type=checkbox]
+        display: inline-block
+        width: 20px
+        height: 20px
+
+        background: url('/images/checkbox-empty.png') no-repeat
+        background-size: 20px
+
+        &:checked
+          background: url('/images/checkbox-checked.png') no-repeat
+          background-size: 20px
+
+      label
+        position: absolute
+        top: 0px
+        left: 40px
+        font-family: 'HelveticaNeue-Regular'
+        font-size: 16px
+        line-height: 22px
+        color: #fff
+        cursor: pointer
+
+
+      textarea
+        width: 400px
+        height: 100px
+        padding: 10px
+        font-family: 'HelveticaNeue-Light'
+        font-size: 16px
+        line-height: 22px
+        color: #3d3d3d
+
+      .button
+        text-align: center
+        line-height: 50px
+        font-family: 'HelveticaNeue-Medium'
+        width: 320px
+        height: 50px
+        background: #F9CA6B
+        color: #000000
+        font-size: 18px
+        border: none
+        cursor: pointer
+
+        &:hover
+          background: #F9CA6B
+
+
+
+
