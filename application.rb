@@ -36,12 +36,16 @@ class Application < Sinatra::Base
 
   post '/orders.json' do
 
-    message = "#{params[:order][:name]}. #{params[:order][:phone]}"
+    message = "#{params[:order][:username]}. #{params[:order][:phone]} \n"
+    message += "- - - - - - - \n"
+    message += params[:order][:question]
+    message += "\n - - - - - - - \n"
+    message += params[:order][:questions]
 
 
 
     Pony.mail ({
-      to: 'abardacha@gmail.com, kostyadt@gmail.com, 0712xy@gmail.com, admass100@gmail.com',
+      to: 'abardacha@gmail.com, kostyadt@gmail.com',
       subject: I18n.t('email.title', locale: 'ru'),
       body: message,
       via: :smtp,

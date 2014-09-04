@@ -1,21 +1,24 @@
+questions = ""
+question = ""
+
 $ ->
 
 
+  $('#show-form').on 'click', ->
 
-  $('.button').on 'click', ->
-
-    rel = $(@).attr('rel')
+    question = $('#question').val()
+    add_question(li) for li in $('#questions li')
 
     $('.modal-overlay').show()
-    $(".modal-form.#{rel}").css('top', '-1000px')
+    $('.modal-form').css('top', '-1000px')
 
     $('.modal-overlay').unbind()
     $('.modal-overlay').on 'click', ->
       hide_form()
 
     $('.modal-overlay').animate({'opacity' : '0.6'}, 200, ->
-      $(".modal-form.#{rel}").show()
-      $(".modal-form.#{rel}").animate({'top': '50%'}, 200)
+      $('.modal-form').show()
+      $('.modal-form').animate({'top': '50%'}, 200)
     )
 
   $('#hide-thank-you').on 'click', ->
@@ -23,10 +26,11 @@ $ ->
 
 
 
-  $('.send-form').on 'click', ->
+  $('#send-form').on 'click', ->
 
-    username = $(@).parent().find('input[name=name]')
+    username = $(@).parent().find('input[name=username]')
     phone = $(@).parent().find('input[name=phone]')
+    square = $(@).parent().find('input[name=square]')
 
     shake_fields = []
 
@@ -42,10 +46,12 @@ $ ->
 
     $.post(
       '/orders.json',
-      {
-        'order[name]': username.val(),
-        'order[phone]': phone.val()
-      }
+    {
+      'order[username]': username.val(),
+      'order[phone]': phone.val(),
+      'order[question]': question,
+      'order[questions]': questions
+    }
     )
 
 
@@ -56,6 +62,12 @@ $ ->
     reach_goal 'new_order'
 
 
+
+window.add_question = (li) ->
+
+  if $(li).find('input[type=checkbox]').is(':checked')
+    questions += "\n"
+    questions += $(li).find('label').text()
 
 
 window.hide_form = ->
@@ -91,12 +103,12 @@ window.shake_field = (field) ->
 window.shake = (field, i) ->
 
   if i%2
-    field.animate({height: '-=15'}, 100)
+    field.animate({width: '-=30'}, 100)
   else
-    field.animate({height: '+=15'}, 100)
+    field.animate({width: '+=30'}, 100)
 
 window.reach_goal = (goal) ->
-  26000148.reachGoal(goal)
+  yaCounter25435676.reachGoal(goal)
 
 
 
