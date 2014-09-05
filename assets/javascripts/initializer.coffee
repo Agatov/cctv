@@ -7,7 +7,7 @@ $ ->
   $('#show-form').on 'click', ->
 
     #question = $('#question').val()
-    add_question(li) for li in $('#questions li')
+    #add_question(li) for li in $('#questions li')
 
     $('.modal-overlay').show()
     $('.modal-form').css('top', '-1000px')
